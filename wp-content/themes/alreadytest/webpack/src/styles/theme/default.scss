@@ -1,0 +1,22 @@
+*,
+*::after,
+*::before {
+  @apply box-border;
+}
+html{
+  @apply overscroll-x-none;
+}
+body {
+  @apply ~xs/xl:~font-[12px]/[14px] overscroll-x-none dark:bg-dark bg-gray;
+  @apply flex flex-col relative min-h-screen overflow-x-hidden;
+}
+
+main.site-main{
+  @apply flex-grow;
+}
+.container-full{
+  @apply max-w-full mx-auto ~px-[15px]/[60px];
+}
+h1, h2, h3, h4, h5, h6{
+
+}

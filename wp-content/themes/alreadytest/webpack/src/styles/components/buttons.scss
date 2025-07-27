@@ -1,0 +1,48 @@
+.btn{
+
+
+}
+
+// Theme switch
+.theme-switch {
+  @apply relative;
+
+  &__input,
+  &__label {
+    @apply absolute z-[1] cursor-pointer;
+  }
+
+  &__input {
+    @apply hidden;
+
+    &:hover,
+    &:focus {
+      + .theme-switch__label {
+
+        &::after {
+
+        }
+      }
+    }
+
+    &:checked ~ .theme-switch__label {
+
+      &>span {
+        @apply translate-x-full;
+      }
+    }
+  }
+
+  &__label {
+    @apply inline-block p-[3px] h-[24px] w-[42px] rounded-[32px] text-white bg-green dark:bg-orange transition-all;
+
+    &>span {
+      @apply absolute w-[18px] h-[18px] rounded-[50%] transition-all;
+
+      svg{
+        @apply w-full h-full;
+      }
+
+    }
+  }
+}

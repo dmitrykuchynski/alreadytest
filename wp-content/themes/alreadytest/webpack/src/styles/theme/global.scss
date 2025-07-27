@@ -1,0 +1,10 @@
+@import "./stylesheet";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import "./default";
+@import "../components/buttons";
+@import "../components/header";
+@import "../components/footer";
