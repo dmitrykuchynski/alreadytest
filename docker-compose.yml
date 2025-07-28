@@ -12,14 +12,16 @@ services:
 
   wordpress:
     platform: linux/amd64
-    image: wordpress:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: wp-site
-    depends_on:
-      - db
+    volumes:
+      - ./:/var/www/html
     ports:
       - "8000:80"
-    volumes:
-      - ./wp-content:/var/www/html/wp-content
+    depends_on:
+      - db
     restart: always
     env_file:
       - .env
