@@ -1,10 +1,10 @@
 <?php
 $price     = get_field('price', get_the_ID());
 $image     = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
-$carBrand = get_the_terms(get_the_ID(), 'car_brand');
-$carModel = get_the_title();
-$carType  = get_the_terms(get_the_ID(), 'car_type');
-$carYear  = get_the_terms(get_the_ID(), 'car_year');
+$carBrand  = get_the_terms(get_the_ID(), 'car_brand');
+$carModel  = get_the_title();
+$carType   = get_the_terms(get_the_ID(), 'car_type');
+$carYear   = get_the_terms(get_the_ID(), 'car_year');
 $carColor  = get_the_terms(get_the_ID(), 'car_color');
 $permalink = get_permalink();
 ?>
