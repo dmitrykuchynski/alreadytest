@@ -7,8 +7,8 @@ final class Init {
 	 * @var Helpers\BlockItem[]
 	 */
 	private static array $blocks = [
-        General\Hero::class,
         General\LatestCars::class,
+        General\OffersSection::class,
 	];
 
 	public function __construct()

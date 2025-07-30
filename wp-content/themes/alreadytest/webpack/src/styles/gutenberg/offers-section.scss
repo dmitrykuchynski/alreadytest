@@ -1,0 +1,298 @@
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+.offer-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  font-family: 'Rubik', sans-serif;
+
+  .offer-card {
+    max-width: 1320px;
+    width: 100%;
+    //height: 228px;
+    border-radius: 15px;
+    background-color: #F7F8FD;
+    //padding: 23px 15px 15px 15px;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 23px 15px 25px 15px;
+      border-bottom: 2px solid #EBECF599;
+
+      &--title {
+        display: flex;
+        font-weight: 500;
+      }
+    }
+
+    &__rank {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      //color: #f7931a;
+    }
+
+    &__icon {
+      margin-right: 10px;
+      transform: scaleX(-1);
+      background: linear-gradient(180deg, #FFC736 0%, #FF630C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &__position {
+      margin-right: 12px;
+      background: linear-gradient(180deg, #FFC736 0%, #FF630C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &__brand {
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    &__rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    &__main {
+      //display: grid;
+      //grid-template-columns: minmax(140px, 148px) minmax(270px, 284px) minmax(170px, 185px) minmax(260px, 272px) minmax(170px, 180px);
+      //gap: 16px;
+      //align-items: start;
+      display: flex;
+    }
+
+    &__logo {
+      margin: 15px 18px 15px 15px;
+      width: 148px;
+      height: 125px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &__bonus {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 15px 0;
+      width: 284px;
+    }
+
+    &__gift {
+      font-size: 14px;
+      color: #72768D;
+      font-weight: 500;
+
+      .fa-gift {
+        background: linear-gradient(180deg, #FF9900 0%, #FF630C 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    &__title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    &__description {
+      color: #72768D;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    &__features {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 21px 47px 21px 33px;
+      font-size: 14px;
+      font-weight: 400;
+
+      i {
+        color: #3b82f6;
+        margin-right: 6px;
+      }
+    }
+
+    &__payments {
+      //display: grid;
+      //grid-template-columns: repeat(3, auto);
+      //gap: 8px;
+      //align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin: 15px 38px 21px 47px;
+      width: 272px;
+      justify-content: space-between;
+    }
+
+    &__payments-icons {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      column-gap: 20px;
+      row-gap: 15px;
+      align-items: center;
+    }
+
+    &__payment-icon {
+      width: 53px;
+      height: 34px;
+      background: #EBECF5A6;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 22.94px;
+        height: 14.79px;
+      }
+    }
+
+    &__more {
+      text-align: center;
+      margin-top: 22px;
+
+      &-btn {
+        position: relative;
+        background: none;
+        border: none;
+        color: #7a82a1;
+        font-size: 13px;
+        font-weight: 300;
+        cursor: pointer;
+        padding: 0 11px;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          width: 86px;
+          height: 2px;
+          background-color: #A6AAC3;
+          transform: translateY(-50%);
+        }
+
+        &::before {
+          left: -86px;
+        }
+
+        &::after {
+          right: -86px;
+        }
+
+        i {
+          margin-left: 6px;
+          font-size: 0.85em;
+        }
+
+        &:hover {
+          color: #495071;
+
+          &::before,
+          &::after {
+            background-color: #9fa6b8;
+          }
+        }
+      }
+    }
+
+    &__payments img {
+      width: 40px;
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 15px 15px 15px 38px;
+
+      .btn {
+        width: 180px;
+        height: 55px;
+        color: white;
+        padding: 10px 16px;
+        text-align: center;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &.offer-card__btn {
+          &:hover {
+            background-color: #48a112 !important;
+          }
+        }
+
+        &.offer-card__link {
+          background: #EBECF57D;
+          color: #6F728C;
+
+          &:hover {
+            background-color: #EBECF5;
+          }
+        }
+      }
+    }
+
+    &__details {
+      font-size: 14px;
+      color: #72768D;
+      border-top: 2px solid rgba(235, 236, 245, .6);
+      padding: 15px;
+      display: flex;
+    }
+
+    &__text {
+      width: 446px;
+    }
+
+    &__pros-cons {
+      display: flex;
+      gap: 15px;
+      margin-left: 20px;
+    }
+
+    &__list {
+      list-style: none;
+      width: 404px;
+      border: 2px solid #EBECF5;
+      border-radius: 15px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      li {
+        i {
+          margin-right: 5px;
+        }
+      }
+
+      &--pros i {
+        color: #22c55e;
+      }
+
+      &--cons i {
+        color: #ef4444;
+      }
+    }
+  }
+}
+
