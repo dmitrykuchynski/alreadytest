@@ -13,25 +13,21 @@ include_once get_template_directory() . '/templates/svg/theme-switcher-icon.php'
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<header class="header">
-    <div class="container-full 3xl:container">
-        <div class="header__menu-wrapper">
-            <!--Theme switch-->
-            <div class="theme-switch">
-                <input type="checkbox" id="theme-toggle" name="theme-switch" class="theme-switch__input" />
-                <label for="theme-toggle" class="theme-switch__label">
-                        <span><?= get_theme_switcher_icon();?></span>
-                </label>
-            </div>
-            <div class="header__menu-desktop">
-                <div class="header__logo"><?= Header::getLogo() ?></div>
-                <div class="header__menu--left"><?php Menu::get_header_menu(); ?></div>
-                <div class="header__menu--right">
-	                <?= Menu::get_header_btn('header__btn btn btn--primary btn--md'); ?>
-                </div>
-            </div>
+
+<header id="header">
+    <div class="header-container">
+        <!-- Logo -->
+        <div class="site-logo">
+            <a href="<?= esc_url(home_url('/')); ?>">
+                <?= Header::getLogo(); ?>
+            </a>
+        </div>
+
+        <!-- Mobile Burger -->
+        <div class="menu-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
     </div>
 </header>
-
-

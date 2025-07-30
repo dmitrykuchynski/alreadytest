@@ -6,14 +6,15 @@ const TerserPlugin = require('terser-webpack-plugin');
 // include the css extraction and minification plugins
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const glob = require('glob');
 
-
-const entryPoints = {
-  'global': './src/js/global.js',
-  'hero': './src/js/gutenberg/hero.js',
-};
+const entryPoints = glob.sync('./src/js/{*.js,pages/**/*.js,gutenberg/**/*.js}').reduce((entries, file) => {
+  const relativePath = path.relative('./src/js', file);
+  const name = relativePath.replace(/\\/g, '/').replace(/\.js$/, '');
+  entries[name] = file;
+  return entries;
+}, {});
 
 module.exports = (env, argv) => {
 
@@ -41,6 +42,14 @@ module.exports = (env, argv) => {
             loader: "babel-loader",
           }
         },
+        {
+          test: /\.css$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            'postcss-loader'
+          ]
+        },
         // compile all .scss files to plain old css
         {
           test: /\.(sass|scss)$/,
@@ -63,30 +72,41 @@ module.exports = (env, argv) => {
       ]
     },
     plugins: [
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+      }),
       // extract css into dedicated file
       new MiniCssExtractPlugin({
         filename: '../assets/css/[name].min.css'
       }),
-      isDev && new BrowserSyncPlugin(
+      new HtmlWebpackPlugin({
+        inject: 'body',
+        scriptLoading: 'defer',
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+        },
+        preload: [
           {
-            open: true,
-            proxy: 'http://localhost:8000/',
-          },
-          // Prevent BrowserSync from reloading the page and let Webpack take care of this
-          {
-            reload: true,
-          },
-      ),
+            rel: 'preload',
+            href: '../assets/fonts/[name][ext]',
+            as: 'font',
+            type: 'font/woff2',
+            crossorigin: 'anonymous'
+          }
+        ]
+      }),
     ],
     optimization: {
-      minimize: !isDev,
+      minimize: true,
       minimizer: [
         // enable the js minification plugin
-        !isDev && new TerserPlugin ({
+        new TerserPlugin ({
           parallel: true
         }),
         // enable the css minification plugin
-        !isDev && new CssMinimizerPlugin()
+        new CssMinimizerPlugin()
       ]
     }
   };

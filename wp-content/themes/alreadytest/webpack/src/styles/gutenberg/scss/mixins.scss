@@ -1,0 +1,153 @@
+@mixin block-transition ($value, $time: 0.3s, $type: ease-in-out) {
+    -webkit-transition: $value $time $type;
+    -moz-transition: $value $time $type;
+    -o-transition: $value $time $type;
+    transition: $value $time $type;
+}
+
+@mixin button {
+    border-radius: 4px;
+    border: 1px solid #556EE6;
+    background: #556EE6;
+    padding: 7px 9px;
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: none;
+    cursor: pointer;
+    @include block-transition(all);
+
+    &:hover {
+        color: #FFFFFF;
+        text-decoration: none;
+        background: #2747DF;
+        border-color: #2747DF;
+    }
+
+    &:hover:active:not(:disabled) {
+        background: #1936C2;
+        border-color: #1936C2;
+    }
+
+    &:disabled {
+        background: #BABBC2;
+        border-color: #BABBC2;
+        color: #FFFFFF;
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+}
+
+@mixin button-second {
+    border-radius: 4px;
+    border: 1px solid #74788d;
+    background: #74788d;
+    padding: 7px 9px;
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: none;
+    cursor: pointer;
+    @include block-transition(all);
+
+    &:hover {
+        color: #FFFFFF;
+        text-decoration: none;
+        background: #50577c;
+        border-color: #50577c;
+    }
+
+    &:hover:active:not(:disabled) {
+        background: #3D4777;
+        border-color: #3D4777;
+    }
+
+    &:disabled {
+        background: #BABBC2;
+        border-color: #BABBC2;
+        color: #FFFFFF;
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+}
+
+@mixin button-third {
+    color: #556EE6;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration-line: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    @include block-transition(all);
+    cursor: pointer;
+
+    &:hover {
+        color: #2747DF;
+        background: unset;
+        box-shadow: unset;
+    }
+
+    &:hover:active:not(:disabled) {
+        color: #1937C2;
+    }
+
+    &:disabled {
+        color: #BABBC2;
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+}
+
+@mixin input-text {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    background: #FFF;
+    padding: 7px 9px;
+    margin: 0;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000000;
+    width: 100%;
+    transition: 0.3s;
+    outline: none;
+    box-shadow: none;
+    -moz-appearance: textfield;
+
+    &::placeholder {
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        color: #6C757D;
+        opacity: 1;
+    }
+
+    &:hover {
+        border: 1px solid #000000;
+        box-shadow: none;
+        outline: none;
+    }
+
+    &:focus {
+        border-color: #2747DF;
+        box-shadow: none;
+        outline: none;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}

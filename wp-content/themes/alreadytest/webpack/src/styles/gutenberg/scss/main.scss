@@ -1,0 +1,179 @@
+@import "mixins";
+@import "variables";
+
+.alreadymedia-car-search {
+    position: relative;
+
+    @import "select2/scss/core";
+    @import 'vanillajs-datepicker/sass/datepicker';
+
+    &.alreadymedia-car-search_updating{
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    &__wrap {
+        padding: 40px 0;
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 0;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        color: #000000;
+
+        &-filter {
+            display: flex;
+        }
+
+        &-advanced {
+            display: flex;
+        }
+
+        svg {
+            content: '';
+            display: inline-block;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='11' viewBox='0 0 20 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1H19M4.21429 5.5H15.7857M8.07143 10H11.9286' stroke='currentcolor' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 1em;
+            height: 1.5em;
+            margin-right: 4px;
+        }
+    }
+
+    &__form {
+        &-wrap {
+            margin: -7px -10px;
+        }
+    }
+
+    &__buttons-group {
+        flex: 0 0 auto;
+        padding: 7px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        height: 100%;
+        margin-top: 16px;
+        margin-left: auto;
+
+        button + button {
+            margin-left: 16px;
+        }
+
+        button + a {
+            margin-left: 16px;
+        }
+    }
+
+    &__field-groups {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__field-group {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 7px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        @media screen and (min-width: $xs-min-screen) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        @media screen and (min-width: $sm-min-screen) {
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+        }
+
+        @media screen and (min-width: $md-min-screen) {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+
+        &-row {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        &-separator {
+            height: 36px;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 20px;
+            letter-spacing: 0;
+            display: inline-flex;
+            margin: 0 8px;
+            color: #6C757D;
+            justify-content: center;
+            align-items: center;
+            word-break: normal;
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        max-width: 100%;
+        justify-content: flex-start;
+
+        &-label-span {
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 0;
+            text-align: left;
+            margin-bottom: 4px;
+            color: #000000;
+        }
+    }
+
+    input {
+        &[type="text"],
+        &[type="number"] {
+            width: 100%;
+            @include input-text;
+        }
+    }
+
+    &__apply {
+        @include button;
+
+        &--redirect {
+            @include button;
+        }
+    }
+
+    &__reset {
+        @include button-third;
+        color: #556EE6;
+    }
+
+    &__advanced {
+        &-toggle {
+            @include button-third;
+            text-decoration-line: none;
+            position: relative;
+
+            svg {
+                background-image: none;
+                position: absolute;
+            }
+        }
+    }
+}

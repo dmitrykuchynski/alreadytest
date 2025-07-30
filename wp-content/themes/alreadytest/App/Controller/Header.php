@@ -13,7 +13,9 @@ final class Header {
       return '';
     }
 
-    $logo_id = get_field('header_logo', 'option');
+    $header = get_field('header', 'option');
+    $logo_id = $header['header_logo'] ?? null;
+
     switch ($type) {
       case 'image':
         return SVG::get_image($logo_id, $args);

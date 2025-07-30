@@ -27,7 +27,9 @@ final class init {
 			Base\Deregister::class,
 			CF7\CF7Init::class,
 			Acf\Blocks\Init::class,
-		);
+            Cars\Cars::class,
+            Cars\CarsSearch::class,
+        );
 	}
 
 	/**

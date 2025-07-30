@@ -17,7 +17,7 @@ services:
       dockerfile: Dockerfile
     container_name: wp-site
     volumes:
-      - ./:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
     ports:
       - "8000:80"
     depends_on:

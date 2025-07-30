@@ -7,7 +7,7 @@ html{
   @apply overscroll-x-none;
 }
 body {
-  @apply ~xs/xl:~font-[12px]/[14px] overscroll-x-none dark:bg-dark bg-gray;
+  @apply ~xs/xl:~font-[12px]/[14px] overscroll-x-none;
   @apply flex flex-col relative min-h-screen overflow-x-hidden;
 }
 
@@ -19,4 +19,17 @@ main.site-main{
 }
 h1, h2, h3, h4, h5, h6{
 
+}
+
+.container, .back {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  box-sizing: border-box;
+
+  @media (max-width: 1650px) {
+    max-width: 1280px;
+    padding: 0 1rem;
+  }
 }

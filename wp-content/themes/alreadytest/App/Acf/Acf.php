@@ -9,7 +9,7 @@ final class Acf {
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		}
 
-		if ( is_plugin_active( 'acf_pro/acf.php' ) ) {
+		if ( is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) {
 			return true;
 		}
 

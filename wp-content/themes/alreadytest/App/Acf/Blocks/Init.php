@@ -8,6 +8,7 @@ final class Init {
 	 */
 	private static array $blocks = [
         General\Hero::class,
+        General\LatestCars::class,
 	];
 
 	public function __construct()
@@ -19,6 +20,16 @@ final class Init {
 			$block::setBlockParams();
 		}
 		RegisterBlock::init();
-	}
 
+        add_action('enqueue_block_assets', [self::class, 'enqueueAssets']);
+    }
+
+    public static function enqueueAssets(): void
+    {
+        foreach (self::$blocks as $block) {
+            if (method_exists($block, 'enqueueAssets')) {
+                $block::enqueueAssets();
+            }
+        }
+    }
 }
