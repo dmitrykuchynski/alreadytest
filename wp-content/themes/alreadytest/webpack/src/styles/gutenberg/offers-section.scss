@@ -171,6 +171,7 @@
           margin-top: 14px;
           margin-bottom: 10px;
           gap: 7px;
+          width: 100%;
         }
 
         .offer-card__features {
@@ -259,7 +260,7 @@
         }
       }
 
-      @media screen and (max-width: 375px) {
+      @media screen and (max-width: 384px) {
         .offer-card__logo {
           height: 84px;
           margin: 10px;
