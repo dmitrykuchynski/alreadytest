@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
             masks.push(new IMask(priceMin, getPriceMaskOptions()));
             masks.push(new IMask(priceMax, getPriceMaskOptions()));
 
-            // priceMin.addEventListener('change', triggerAjaxUpdate);
-            // priceMax.addEventListener('change', triggerAjaxUpdate);
+            priceMin.addEventListener('change', triggerPriceUpdate);
+            priceMax.addEventListener('change', triggerPriceUpdate);
         }
 
         // Handle filter changes
@@ -47,10 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Reset form and filters
         form.on('reset', function () {
             setTimeout(() => {
-                allInputs.val(null).trigger('change');
-                masks.forEach(m => m.destroy());
-                masks = [];
-                updateResults({});
+                location.reload();
             }, 0);
         });
 
@@ -73,6 +70,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             updateResults(dataForResults);
+        }
+
+        function triggerPriceUpdate() {
+            const dataForResults = {};
+
+            dynamicInputs.each(function () {
+                const $el = jQuery(this);
+                const val = $el.val();
+
+                if (val && val.length > 0) {
+                    dataForResults[$el.attr('name')] = val;
+                }
+            });
         }
 
         function updatePriceMasks(minData, maxData) {
