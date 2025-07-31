@@ -27,6 +27,10 @@ footer {
         display: flex;
         gap: 80px;
 
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
+
         .menu {
           padding: 0;
           margin: 0;

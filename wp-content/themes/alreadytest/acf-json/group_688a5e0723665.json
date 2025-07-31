@@ -69,11 +69,11 @@
                     "parent_repeater": "field_688a631c74c75"
                 },
                 {
-                    "key": "field_688a674852d91",
-                    "label": "Best Bonus Badge Gradient Start",
-                    "name": "best_bonus_badge_gradient_start",
+                    "key": "field_688b163ab7153",
+                    "label": "Bonus badge",
+                    "name": "bonus_badge",
                     "aria-label": "",
-                    "type": "color_picker",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": [
@@ -90,38 +90,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "string",
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
                     "allow_in_bindings": 0,
-                    "parent_repeater": "field_688a631c74c75"
-                },
-                {
-                    "key": "field_688a6abd0f55a",
-                    "label": "Best Bonus Badge Gradient End",
-                    "name": "best_bonus_badge_gradient_end",
-                    "aria-label": "",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_688a636874c77",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "string",
-                    "allow_in_bindings": 0,
+                    "preview_size": "medium",
                     "parent_repeater": "field_688a631c74c75"
                 },
                 {
@@ -554,5 +533,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1753902923
+    "modified": 1753945697
 }

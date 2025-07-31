@@ -6,24 +6,88 @@
   margin: 40px 0;
   font-family: 'Rubik', sans-serif;
 
+  @media screen and (max-width: 768px) {
+    margin: 10px;
+  }
+
   .offer-card {
     max-width: 1320px;
     width: 100%;
-    //height: 228px;
     border-radius: 15px;
     background-color: #F7F8FD;
-    //padding: 23px 15px 15px 15px;
+    position: relative;
+
+    @media screen and (max-width: 1320px) {
+      max-width: 1200px;
+    }
+
+    @media screen and (max-width: 1200px) {
+      max-width: 1080px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      max-width: 950px;
+    }
+
+    @media screen and (max-width: 768px) {
+      max-width: 700px;
+    }
+
+    &__badge {
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+
+      @media screen and (max-width: 768px) {
+        left: unset;
+        right: -2%;
+      }
+
+      @media screen and (max-width: 428px) {
+        left: unset;
+        right: -7%;
+      }
+
+      @media screen and (max-width: 320px) {
+        right: -5%;
+      }
+
+      img {
+        display: block;
+        height: 42px;
+        width: auto;
+
+        @media screen and (max-width: 768px) {
+          height: 34px;
+        }
+
+        @media screen and (max-width: 320px) {
+          height: 32px;
+          width: 141px;
+        }
+      }
+    }
 
     &__header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 23px 15px 25px 15px;
+      padding: 23px 15px;
       border-bottom: 2px solid #EBECF599;
+
+      @media screen and (max-width: 768px) {
+        padding: 15px 10px;
+      }
 
       &--title {
         display: flex;
         font-weight: 500;
+
+        @media screen and (max-width: 768px) {
+          font-size: 14px;
+        }
       }
     }
 
@@ -31,7 +95,6 @@
       display: flex;
       align-items: center;
       gap: 4px;
-      //color: #f7931a;
     }
 
     &__icon {
@@ -52,20 +115,202 @@
     &__brand {
       font-weight: 500;
       font-size: 18px;
+
+      @media screen and (max-width: 768px) {
+        font-size: 14px;
+      }
     }
 
     &__rating {
       display: flex;
       align-items: center;
       gap: 8px;
+
+      @media screen and (max-width: 768px) {
+        .offer-card__score {
+          font-size: 14px;
+        }
+
+        .offer-card__stars i:nth-child(n+2) {
+          display: none;
+        }
+      }
     }
 
     &__main {
-      //display: grid;
-      //grid-template-columns: minmax(140px, 148px) minmax(270px, 284px) minmax(170px, 185px) minmax(260px, 272px) minmax(170px, 180px);
-      //gap: 16px;
-      //align-items: start;
       display: flex;
+      height: 155px;
+
+      @media screen and (max-width: 1320px) {
+        height: auto;
+      }
+
+      @media screen and (max-width: 768px) {
+        display: grid;
+        grid-template-columns: 97px 1fr;
+        grid-template-areas:
+          "logo bonus"
+          "features features"
+          "actions actions"
+          "payments payments";
+        height: auto;
+
+        .offer-card__logo {
+          grid-area: logo;
+          height: 60px;
+          margin: 14px 15px 10px 10px;
+          width: 72px;
+        }
+
+        .offer-card__bonus {
+          grid-area: bonus;
+          margin-top: 14px;
+          margin-bottom: 10px;
+          gap: 7px;
+        }
+
+        .offer-card__features {
+          grid-area: features;
+          margin: 0;
+          padding: 20px 10px 10px 10px;
+          border-top: 2px solid #EBECF599;
+          display: grid;
+          grid-template-rows: repeat(2, auto);
+          grid-auto-flow: column;
+          column-gap: 12px;
+          row-gap: 10px;
+          text-align: left;
+          direction: rtl;
+
+          li {
+            direction: ltr;
+            list-style: none;
+          }
+        }
+
+        .offer-card__actions {
+          grid-area: actions;
+          margin: 10px 10px 15px 10px;
+          flex-direction: row-reverse;
+
+          .btn {
+            width: 189px;
+            height: 44px;
+            font-size: 12px;
+          }
+        }
+
+        .offer-card__payments {
+          grid-area: payments;
+          margin: 0;
+          padding: 0 10px 15px 10px;
+          width: 100%;
+          flex-direction: column-reverse;
+
+          &.is-visible {
+            padding-bottom: 0;
+          }
+
+          .offer-card__payments-icons {
+            display: none;
+            padding: 10px 10px 0 10px;
+          }
+
+          .offer-card__payments-icons.is-visible {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 14px;
+            border-top: 2px solid #EBECF599;
+            margin-top: 15px;
+            margin-left: -10px;
+            margin-right: -10px;
+            background: #F1F3FD;
+          }
+
+          .offer-card__payment-icon:nth-child(n + 7) {
+            display: none;
+          }
+
+          .offer-card__more {
+            margin-top: 0;
+            padding: 0;
+
+            .offer-card__more-btn {
+              padding: 0;
+            }
+
+            .offer-card__more-btn::before,
+            .offer-card__more-btn::after {
+              width: 144px;
+            }
+
+            .offer-card__more-btn:before {
+              left: -154px;
+            }
+
+            .offer-card__more-btn:after {
+              right: -154px;
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 375px) {
+        .offer-card__logo {
+          height: 84px;
+          margin: 10px;
+        }
+
+        .offer-card__bonus {
+          width: 100%;
+          margin-top: 14px;
+          margin-bottom: 10px;
+        }
+
+        .offer-card__features {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          text-align: left;
+          direction: unset;
+
+          li {
+            font-size: 12px;
+            flex: 0 0 auto;
+
+            &:nth-child(1) { order: 2; } // Best odds
+            &:nth-child(2) { order: 4; } // Casino
+            &:nth-child(3) { order: 1; } // 200+ Paymenth Method
+            &:nth-child(4) { order: 3; } // Fast Payouts
+          }
+        }
+
+        .offer-card__actions {
+          margin: 10px 10px 15px 10px;
+          flex-direction: column-reverse;
+
+          .btn {
+            width: 100%;
+          }
+        }
+
+        .offer-card__payments {
+          .offer-card__more {
+            .offer-card__more-btn::before,
+            .offer-card__more-btn::after {
+              width: 91px;
+            }
+
+            .offer-card__more-btn:before {
+              left: -100px;
+            }
+
+            .offer-card__more-btn:after {
+              right: -100px;
+            }
+          }
+        }
+      }
     }
 
     &__logo {
@@ -81,15 +326,23 @@
     &__bonus {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
       margin: 15px 0;
       width: 284px;
+
+      @media screen and (max-width: 375px) {
+        width: 100%;
+      }
     }
 
     &__gift {
       font-size: 14px;
       color: #72768D;
       font-weight: 500;
+
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
 
       .fa-gift {
         background: linear-gradient(180deg, #FF9900 0%, #FF630C 100%);
@@ -101,6 +354,11 @@
     &__title {
       font-size: 24px;
       font-weight: 700;
+
+      @media screen and (max-width: 768px) {
+        font-size: 18px;
+        line-height: 100%;
+      }
     }
 
     &__description {
@@ -108,6 +366,11 @@
       font-size: 14px;
       line-height: 20px;
       font-weight: 400;
+
+      @media screen and (max-width: 768px) {
+        font-size: 12px;
+        line-height: 16px;
+      }
     }
 
     &__features {
@@ -115,27 +378,38 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 10px;
       margin: 21px 47px 21px 33px;
       font-size: 14px;
       font-weight: 400;
+      color: #72768D;
+
+      @media screen and (max-width: 1320px) {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
 
       i {
         color: #3b82f6;
         margin-right: 6px;
       }
+
+      li {
+        font-size: 14px;
+      }
     }
 
     &__payments {
-      //display: grid;
-      //grid-template-columns: repeat(3, auto);
-      //gap: 8px;
-      //align-items: center;
       display: flex;
       flex-direction: column;
       margin: 15px 38px 21px 47px;
       width: 272px;
       justify-content: space-between;
+
+      @media screen and (max-width: 1320px) {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
     }
 
     &__payments-icons {
@@ -175,6 +449,16 @@
         cursor: pointer;
         padding: 0 11px;
 
+        i {
+          transition: transform 0.3s ease;
+        }
+
+        &.is-rotated {
+          i {
+            transform: rotate(360deg);
+          }
+        }
+
         &::before,
         &::after {
           content: "";
@@ -184,14 +468,26 @@
           height: 2px;
           background-color: #A6AAC3;
           transform: translateY(-50%);
+
+          @media screen and (max-width: 375px) {
+            width: 100px;
+          }
         }
 
         &::before {
           left: -86px;
+
+          @media screen and (max-width: 375px) {
+            left: -128px;
+          }
         }
 
         &::after {
           right: -86px;
+
+          @media screen and (max-width: 375px) {
+            right: -128px;
+          }
         }
 
         i {
@@ -252,21 +548,60 @@
     }
 
     &__details {
-      font-size: 14px;
-      color: #72768D;
-      border-top: 2px solid rgba(235, 236, 245, .6);
-      padding: 15px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
       display: flex;
+      flex-direction: row;
+      padding: 0 15px;
+      border-top: 2px solid rgba(235, 236, 245, .6);
+      font-size: 14px;
+      color: #72768d;
+      background: #F1F3FD;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        border-top: 0;
+      }
+
+      &.is-visible {
+        max-height: 600px;
+        opacity: 1;
+        transform: translateY(0);
+        padding: 15px;
+        border-radius: 0 0 15px 15px;
+
+        @media screen and (max-width: 768px) {
+          padding: 15px 10px 10px 10px;
+        }
+      }
     }
 
     &__text {
       width: 446px;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        font-size: 12px;
+      }
+
+      @media screen and (max-width: 320px) {
+        font-size: 10px;
+      }
     }
 
     &__pros-cons {
       display: flex;
       gap: 15px;
       margin-left: 20px;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 0;
+      }
     }
 
     &__list {
@@ -278,6 +613,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        margin-top: 15px;
+        font-size: 12px;
+        gap: 10px;
+      }
 
       li {
         i {

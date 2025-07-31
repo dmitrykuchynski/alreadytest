@@ -21,11 +21,15 @@ if ($offers):
             $pros = $offer['pros'];
             $cons = $offer['cons'];
             $is_best_bonus = $offer['best_bonus'];
-            $badge_gradient_start = $offer['best_bonus_badge_gradient_start'];
-            $badge_gradient_end = $offer['best_bonus_badge_gradient_end'];
+            $bonus_badge = $offer['bonus_badge'];
             ?>
 
             <div class="offer-card">
+                <?php if ($is_best_bonus && !empty($bonus_badge['url'])): ?>
+                    <div class="offer-card__badge">
+                        <img src="<?= esc_url($bonus_badge['url']) ?>" alt="<?= esc_attr($bonus_badge['alt'] ?: 'Best bonus') ?>">
+                    </div>
+                <?php endif; ?>
                 <div class="offer-card__header">
                     <div class="offer-card__header--title">
                         <div class="offer-card__rank">
@@ -46,11 +50,11 @@ if ($offers):
 
                             for ($i = 1; $i <= $totalStars; $i++):
                                 if ($i <= $filledStars):
-                                    echo '<i class="fas fa-star" style="color: #FF922E;"></i>'; // Полная звезда
+                                    echo '<i class="fas fa-star" style="color: #FF922E;"></i>';
                                 elseif ($i == $filledStars + 1 && $hasHalfStar):
-                                    echo '<i class="fas fa-star-half-alt" style="color: #FF922E;"></i>'; // Половина звезды
+                                    echo '<i class="fas fa-star-half-alt" style="color: #FF922E;"></i>';
                                 else:
-                                    echo '<i class="far fa-star" style="color: #ccc;"></i>'; // Пустая звезда
+                                    echo '<i class="far fa-star" style="color: #ccc;"></i>';
                                 endif;
                             endfor;
                             ?>
